@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قارئ الكف السحري - Magical Palm Reader</title>
+    <meta name="description" content="تطبيق سحري لقراءة الكف بالكاميرا مع تحليل دقيق ونتائج مذهلة">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/magic.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/components.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+</head>
+<body>
+    <!-- Magical Background -->
+    <div class="magical-bg">
+        <div class="stars"></div>
+        <div class="magic-particles"></div>
+        <div class="glow-orb"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Header -->
+        <header class="magic-header">
+            <div class="logo">
+                <i class="fas fa-hand-sparkles"></i>
+                <h1 class="glowing-text">قارئ الكف السحري</h1>
+            </div>
+            <nav class="magic-nav">
+                <button class="nav-btn" onclick="showSection('welcome-section')">
+                    <i class="fas fa-home"></i>
+                    <span>الرئيسية</span>
+                </button>
+                <button class="nav-btn" onclick="showHistory()">
+                    <i class="fas fa-history"></i>
+                    <span>السجل</span>
+                </button>
+                <button class="nav-btn" onclick="showSettings()">
+                    <i class="fas fa-cog"></i>
+                    <span>الإعدادات</span>
+                </button>
+            </nav>
+        </header>
+
+        <!-- Welcome Section -->
+        <section id="welcome-section" class="welcome-section">
+            <div class="welcome-content">
+                <div class="magic-card float-animation">
+                    <div class="card-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h2 class="glowing-text">مرحباً بك في عالم السحر والغموض</h2>
+                    <p>اكتشف أسرار مستقبلك من خلال قراءة الكف السحرية</p>
+                    <button class="magic-btn pulse-animation" onclick="showSection('user-form-section')">
+                        <i class="fas fa-play"></i>
+                        ابدأ رحلتك السحرية
+                    </button>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card fade-in-up">
+                        <i class="fas fa-camera"></i>
+                        <h3>كاميرا سحرية</h3>
+                        <p>التقط صورة كفك بالكاميرا أو قم بتحميلها</p>
+                    </div>
+                    <div class="feature-card fade-in-up">
+                        <i class="fas fa-brain"></i>
+                        <h3>تحليل ذكي</h3>
+                        <p>محرك تحليل متقدم لقراءة خطوط الكف</p>
+                    </div>
+                    <div class="feature-card fade-in-up">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>نتائج دقيقة</h3>
+                        <p>توقعات مفصلة لجميع جوانب حياتك</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- User Form Section -->
+        <section id="user-form-section" class="user-form-section hidden">
+            <div class="form-container">
+                <div class="form-header">
+                    <i class="fas fa-user-magic"></i>
+                    <h2 class="glowing-text">أدخل بياناتك الشخصية</h2>
+                    <p>المعلومات المطلوبة لقراءة الكف الدقيقة</p>
+                </div>
+                
+                <form id="user-form" class="magic-form">
+                    <div class="form-group">
+                        <label for="name">
+                            <i class="fas fa-user"></i>
+                            الاسم الكامل
+                        </label>
+                        <input type="text" id="name" name="name" class="magic-input" placeholder="أدخل اسمك الكامل" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="birthDate">
+                            <i class="fas fa-calendar"></i>
+                            تاريخ الميلاد
+                        </label>
+                        <input type="date" id="birthDate" name="birthDate" class="magic-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="birthTime">
+                            <i class="fas fa-clock"></i>
+                            وقت الميلاد (اختياري)
+                        </label>
+                        <input type="time" id="birthTime" name="birthTime" class="magic-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="birthPlace">
+                            <i class="fas fa-map-marker-alt"></i>
+                            مكان الميلاد
+                        </label>
+                        <input type="text" id="birthPlace" name="birthPlace" class="magic-input" placeholder="المدينة أو البلد" required>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="magic-btn secondary" onclick="showSection('welcome-section')">
+                            <i class="fas fa-arrow-right"></i>
+                            رجوع
+                        </button>
+                        <button type="submit" class="magic-btn primary">
+                            <i class="fas fa-arrow-left"></i>
+                            متابعة للكاميرا
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Camera Section -->
+        <section id="camera-section" class="camera-section hidden">
+            <div class="camera-container">
+                <div class="camera-header">
+                    <i class="fas fa-camera"></i>
+                    <h2 class="glowing-text">التقط صورة كفك</h2>
+                    <p>اختر طريقة التقاط الصورة المناسبة لك</p>
+                </div>
+                
+                <div class="camera-options">
+                    <div class="camera-option">
+                        <div class="option-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h3>استخدام الكاميرا</h3>
+                        <p>التقط صورة مباشرة من كاميرا جهازك</p>
+                        <button class="magic-btn camera-btn" onclick="openCamera()">
+                            <i class="fas fa-camera"></i>
+                            فتح الكاميرا
+                        </button>
+                    </div>
+                    
+                    <div class="camera-option">
+                        <div class="option-icon">
+                            <i class="fas fa-upload"></i>
+                        </div>
+                        <h3>تحميل صورة</h3>
+                        <p>اختر صورة كف من جهازك</p>
+                        <button class="magic-btn camera-btn" onclick="uploadImage()">
+                            <i class="fas fa-upload"></i>
+                            تحميل صورة
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Camera Preview -->
+                <div id="camera-preview" class="camera-preview hidden">
+                    <video id="video" autoplay playsinline></video>
+                    <canvas id="canvas" style="display: none;"></canvas>
+                    <div class="camera-controls">
+                        <button class="magic-btn capture-btn" onclick="capturePhoto()">
+                            <i class="fas fa-camera"></i>
+                            التقاط الصورة
+                        </button>
+                        <button class="magic-btn cancel-btn" onclick="closeCamera()">
+                            <i class="fas fa-times"></i>
+                            إلغاء
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- File Upload -->
+                <div id="file-upload" class="file-upload hidden">
+                    <div class="upload-area">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3>اسحب الصورة هنا أو انقر للاختيار</h3>
+                        <p>صيغ مدعومة: JPG, PNG, GIF (حتى 10MB)</p>
+                        <input type="file" id="hidden-file-input" accept="image/*" style="display: none;">
+                    </div>
+                </div>
+                
+                <div class="camera-tips">
+                    <h4><i class="fas fa-lightbulb"></i> نصائح لأفضل صورة:</h4>
+                    <ul>
+                        <li>تأكد من إضاءة جيدة على الكف</li>
+                        <li>ضع يدك على خلفية فاتحة اللون</li>
+                        <li>تأكد من ظهور جميع خطوط الكف بوضوح</li>
+                        <li>التقط الصورة من الأعلى مباشرة</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Preview Section -->
+        <section id="preview-section" class="preview-section hidden">
+            <div class="preview-container">
+                <div class="preview-header">
+                    <i class="fas fa-eye"></i>
+                    <h2 class="glowing-text">معاينة الصورة</h2>
+                    <p>تأكد من جودة الصورة قبل بدء القراءة</p>
+                </div>
+                
+                <div class="image-preview">
+                    <img id="preview-image" src="" alt="صورة الكف">
+                    <div class="preview-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="preview-controls">
+                    <button class="magic-btn secondary" onclick="retakePhoto()">
+                        <i class="fas fa-redo"></i>
+                        إعادة التصوير
+                    </button>
+                    <button class="magic-btn primary pulse-animation" onclick="startReading()">
+                        <i class="fas fa-magic"></i>
+                        ابدأ القراءة السحرية
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reading Section -->
+        <section id="reading-section" class="reading-section hidden">
+            <div class="reading-container">
+                <div class="reading-header">
+                    <i class="fas fa-magic"></i>
+                    <h2 class="glowing-text">جاري قراءة الكف...</h2>
+                    <p>يرجى الانتظار بينما نقوم بتحليل خطوط كفك</p>
+                </div>
+                
+                <div class="reading-animation">
+                    <div class="magic-circle">
+                        <i class="fas fa-hand-paper"></i>
+                    </div>
+                    <div class="energy-waves"></div>
+                    <div class="mystical-particles"></div>
+                </div>
+                
+                <div class="reading-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <p class="loader-text">جاري تحليل خطوط الكف...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="results-section" class="results-section hidden">
+            <div class="results-container">
+                <div class="results-header">
+                    <i class="fas fa-scroll"></i>
+                    <h2 class="glowing-text">نتائج قراءة الكف</h2>
+                    <p>اكتشف ما يخبئه لك المستقبل</p>
+                </div>
+                
+                <div class="results-content">
+                    <div class="palm-analysis">
+                        <div class="palm-image-container">
+                            <img id="result-palm-image" src="" alt="صورة الكف المحللة">
+                            <canvas id="result-canvas"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div id="results-container" class="reading-results">
+                        <!-- Results will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="results-actions">
+                    <button class="magic-btn secondary" onclick="saveResults()">
+                        <i class="fas fa-save"></i>
+                        حفظ النتائج
+                    </button>
+                    <button class="magic-btn secondary" onclick="shareResults()">
+                        <i class="fas fa-share"></i>
+                        مشاركة النتائج
+                    </button>
+                    <button class="magic-btn primary" onclick="newReading()">
+                        <i class="fas fa-plus"></i>
+                        قراءة جديدة
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notification-container"></div>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script src="js/camera.js"></script>
+    <script src="js/palm-reading.js"></script>
+    <script src="js/magic-ui.js"></script>
+</body>
+</html>
